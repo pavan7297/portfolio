@@ -42,7 +42,7 @@ src/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/portfolio.git
+git clone https://github.com/pavan7297/portfolio.git
 cd portfolio
 ```
 
@@ -98,10 +98,10 @@ ng test
 
 If you're looking for a **freelance developer** or want to collaborate:
 
-* 📧 Email: [yourmail@gmail.com](mailto:yourmail@gmail.com)
-* 📞 Phone: +91 XXXXXXXXXX
-* 💼 LinkedIn: (Add your link)
-* 💻 GitHub: (Add your link)
+* 📧 Email: [mallapavansrinivas@gmail.com](mailto:mallapavansrinivas@gmail.com)
+* 📞 Phone: +91 9502214310
+* 💼 LinkedIn: [(Add your link)](https://www.linkedin.com/in/pavan-srinivas-malla/)
+* 💻 GitHub: [(Add your link)](https://github.com/pavan7297)
 
 ---
 
