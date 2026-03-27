@@ -100,8 +100,8 @@ If you're looking for a **freelance developer** or want to collaborate:
 
 * 📧 Email: [mallapavansrinivas@gmail.com](mailto:mallapavansrinivas@gmail.com)
 * 📞 Phone: +91 9502214310
-* 💼 LinkedIn: [(Add your link)](https://www.linkedin.com/in/pavan-srinivas-malla/)
-* 💻 GitHub: [(Add your link)](https://github.com/pavan7297)
+* 💼 LinkedIn: [(pavan Srinivas)](https://www.linkedin.com/in/pavan-srinivas-malla/)
+* 💻 GitHub: [(pavan Srinivas)](https://github.com/pavan7297)
 
 ---
 
