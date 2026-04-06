@@ -13,49 +13,61 @@ interface Service {
 
 @Component({
   selector: 'app-livepro',
-  template: `<div class="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-6 flex justify-center">
+  template: `
+<div class="min-h-screen bg-gradient-to-br from-slate-100 via-white to-slate-200 p-6 flex justify-center">
 
-  <div class="max-w-6xl w-full flex flex-col gap-12">
+  <div class="max-w-7xl w-full flex flex-col gap-14">
 
     <!-- HEADER -->
-    <div class="text-center">
-      <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+    <div class="text-center max-w-2xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
         My Services
       </h1>
-      <p class="text-gray-600 mt-3">
-        Building scalable full-stack applications with modern technologies
+      <p class="text-slate-500 mt-4 text-lg leading-relaxed">
+        Crafting scalable, high-performance full-stack applications using modern technologies.
       </p>
     </div>
 
-    <!-- SERVICES GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- GRID -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
       <div *ngFor="let service of services"
-           class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-2 transition flex flex-col gap-4 border border-gray-100">
+           class="group relative bg-white/70 backdrop-blur-xl rounded-3xl p-7 border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col gap-5">
 
-        <!-- ICON -->
-        <div class="w-12 h-12 flex items-center justify-center rounded-xl text-xl"
-             [ngClass]="{
-               'bg-purple-100 text-purple-600': service.color === 'purple',
-               'bg-green-100 text-green-600': service.color === 'green',
-               'bg-blue-100 text-blue-600': service.color === 'blue'
-             }">
-          {{ service.icon }}
+        <!-- TOP BAR -->
+        <div class="flex items-center justify-between">
+
+          <!-- ICON -->
+          <div class="w-14 h-14 flex items-center justify-center rounded-2xl text-2xl font-semibold shadow-inner"
+               [ngClass]="{
+                 'bg-indigo-100 text-indigo-600': service.color === 'purple',
+                 'bg-emerald-100 text-emerald-600': service.color === 'green',
+                 'bg-sky-100 text-sky-600': service.color === 'blue'
+               }">
+            {{ service.icon }}
+          </div>
+
+          <!-- TAG -->
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-slate-100 text-slate-500">
+            Live Project
+          </span>
+
         </div>
 
         <!-- TITLE -->
-        <h2 class="text-xl font-semibold">
+        <h2 class="text-xl font-semibold text-slate-800 group-hover:text-indigo-600 transition">
           {{ service.title }}
         </h2>
 
         <!-- DESC -->
-        <p class="text-gray-500 text-sm">
+        <p class="text-slate-500 text-sm leading-relaxed">
           {{ service.description }}
         </p>
 
-        <!-- POINTS -->
-        <ul class="text-xs text-gray-600 list-disc pl-4 space-y-1">
-          <li *ngFor="let point of service.points">
+        <!-- FEATURES -->
+        <ul class="text-sm text-slate-600 space-y-2">
+          <li *ngFor="let point of service.points" class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
             {{ point }}
           </li>
         </ul>
@@ -63,16 +75,24 @@ interface Service {
         <!-- BUTTON -->
         <a [href]="service.liveUrl"
            target="_blank"
-           class="mt-auto text-center py-2 rounded-lg text-white transition"
+           class="mt-auto inline-flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium text-white transition-all duration-300 shadow-md hover:shadow-lg"
            [ngClass]="{
-             'bg-purple-600 hover:bg-purple-700': service.color === 'purple',
-             'bg-green-600 hover:bg-green-700': service.color === 'green',
-             'bg-blue-600 hover:bg-blue-700': service.color === 'blue'
+             'bg-indigo-600 hover:bg-indigo-700': service.color === 'purple',
+             'bg-emerald-600 hover:bg-emerald-700': service.color === 'green',
+             'bg-sky-600 hover:bg-sky-700': service.color === 'blue'
            }">
 
-          View Live
-
+          View Live →
         </a>
+
+        <!-- HOVER GLOW -->
+        <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition pointer-events-none"
+             [ngClass]="{
+               'bg-indigo-500/5': service.color === 'purple',
+               'bg-emerald-500/5': service.color === 'green',
+               'bg-sky-500/5': service.color === 'blue'
+             }">
+        </div>
 
       </div>
 
@@ -80,8 +100,9 @@ interface Service {
 
   </div>
 
-</div>`,
-  imports: [CommonModule, RouterLink],
+</div>
+`,
+  imports: [CommonModule],
 
 })
 export class livepro {
@@ -124,6 +145,19 @@ export class livepro {
         'Admin dashboard',
         'Responsive Angular UI',
         'Spring Boot backend'
+      ]
+    },
+    {
+      title: 'Digital Godavary',
+      description: 'A scalable digital platform for managing local services, businesses, and community engagement.',
+      liveUrl: 'https://www.digitalgodavary.com',
+      icon: '🌐',
+      color: 'purple',
+      points: [
+        'Local business listing & discovery',
+        'Dynamic content management system',
+        'SEO-optimized responsive UI',
+        'High-performance full-stack architecture'
       ]
     }
   ];
