@@ -1,3 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Erica+One&family=Foldit:wght@100..900&family=Luckiest+Guy&family=Mozilla+Headline:wght@200..700&family=Sansita+Swashed:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Erica+One&family=Luckiest+Guy&family=Sansita+Swashed:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Erica+One&family=Foldit:wght@100..900&family=Luckiest+Guy&family=Sansita+Swashed:wght@300..900&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  --font-sansita: 'Sansita Swashed', system-ui;
+  --font-Erica: "Erica One", sans-serif;
+  --font-swasheds: 'Luckiest Guy', cursive;
+  --font-foldit: 'Foldit', sans-serif;
+}

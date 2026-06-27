@@ -3,11 +3,11 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": "a9393e01-e0b4-4ff1-9f99-d0acc5da5cbf"
+    "analytics": "2bf40a72-9aba-4a5e-8f5f-1a7cfc0f9825"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "portfoliowebsite": {
+    "protfoliov2": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -23,12 +23,12 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "public",
-                "output": "/"
+                "input": "public"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ]
           },
           "configurations": {
@@ -36,13 +36,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "20MB",
+                  "maximumError": "40MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "20MB",
+                  "maximumError": "20MB"
                 }
               ],
               "outputHashing": "all"
@@ -59,10 +59,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "portfoliowebsite:build:production"
+              "buildTarget": "protfoliov2:build:production"
             },
             "development": {
-              "buildTarget": "portfoliowebsite:build:development"
+              "buildTarget": "protfoliov2:build:development"
             }
           },
           "defaultConfiguration": "development"

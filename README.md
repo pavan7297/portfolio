@@ -1,121 +1,59 @@
-# 🚀 Portfolio Website
+# Protfoliov2
 
-A modern **Portfolio Website** built with **Angular 21 + TailwindCSS** to showcase my skills, experience, and freelance projects.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
 
----
+## Development server
 
-## 🌐 Live Features
-
-* 🏠 **Home Page** – Clean hero section with introduction
-* 💼 **Experience Page** – Professional work history & achievements
-* 📞 **Contact Page** – Easy way to reach me for freelance work
-* 🌍 **Live Projects Section** – Real-world applications & demos
-
----
-
-## 🛠️ Tech Stack
-
-* **Frontend:** Angular 21, TypeScript
-* **Styling:** TailwindCSS
-* **Backend (Projects):** Spring Boot, Node.js
-* **Database:** PostgreSQL, MySQL
-* **Tools:** Git, Docker, AWS
-
----
-
-## 📂 Project Structure
-
-```
-src/
- ├── app/
- │   ├── home/
- │   ├── experience/
- │   ├── contact/
- │   ├── components/
- │   └── services/
-```
-
----
-
-## ⚙️ Installation & Setup
-
-### 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/pavan7297/portfolio.git
-cd portfolio
-```
-
-### 2️⃣ Install Dependencies
-
-```bash
-npm install
-```
-
-### 3️⃣ Run the Application
+To start a local development server, run:
 
 ```bash
 ng serve
 ```
 
-Open browser 👉 `http://localhost:4200/`
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
----
+## Code scaffolding
 
-## 🏗️ Build for Production
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
 
 ```bash
 ng build
 ```
 
-Build files will be available in:
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-```
-dist/
-```
+## Running unit tests
 
----
-
-## 🧪 Running Tests
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
 
 ```bash
 ng test
 ```
 
----
+## Running end-to-end tests
 
-## 📌 Key Highlights
+For end-to-end (e2e) testing, run:
 
-* Responsive UI (Mobile + Desktop)
-* Clean and minimal design
-* Reusable Angular components
-* Optimized performance
-* Real-world project integration
+```bash
+ng e2e
+```
 
----
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## 📬 Contact Me
+## Additional Resources
 
-If you're looking for a **freelance developer** or want to collaborate:
-
-* 📧 Email: [mallapavansrinivas@gmail.com](mailto:mallapavansrinivas@gmail.com)
-* 📞 Phone: +91 9502214310
-* 💼 LinkedIn: [(pavan Srinivas)](https://www.linkedin.com/in/pavan-srinivas-malla/)
-* 💻 GitHub: [(pavan Srinivas)](https://github.com/pavan7297)
-
----
-
-## 🔥 Future Improvements
-
-* Add animations (scroll + transitions)
-* Integrate backend contact API
-* Add blog section
-* Deploy on AWS / Vercel
-
----
-
-## ⭐ Support
-
-If you like this project, give it a ⭐ on GitHub!
-
----
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

@@ -7,10 +7,10 @@ import { RouterLink } from "@angular/router";
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
-<section class="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 text-center">
+<!-- <section class="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 text-center"> -->
 
   <!-- HERO TEXT -->
-  <div class="space-y-4 max-w-3xl">
+  <!-- <div class="space-y-4 max-w-3xl">
 
     <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight">
       Hi, I'm <span class="text-gray-300">{{ devname }}</span>
@@ -24,10 +24,10 @@ import { RouterLink } from "@angular/router";
       Building scalable web applications with clean UI & powerful backend systems.
     </p>
 
-  </div>
+  </div> -->
 
   <!-- BUTTONS -->
-  <div class="flex gap-4 mt-10 flex-wrap justify-center">
+  <!-- <div class="flex gap-4 mt-10 flex-wrap justify-center">
 
     <a routerLink="/contact"
       class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:opacity-80 transition">
@@ -41,7 +41,7 @@ import { RouterLink } from "@angular/router";
 
   </div>
 
-</section>
+</section> -->
   `
 })
 export class hero {
