@@ -1,0 +1,200 @@
+.about-grid {
+  display: grid;
+  gap: 3.2rem;
+  margin-top: 3.5rem;
+  align-items: start;
+}
+
+.portrait-column {
+  position: relative;
+  width: min(100%, 400px);
+  margin: 0 auto;
+}
+
+.portrait-frame {
+  position: relative;
+  padding: 0.85rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  transform: perspective(1000px) rotateY(6deg) rotateX(2deg);
+  box-shadow: 0 30px 80px rgb(0 0 0 / 55%);
+}
+
+.portrait-glow {
+  position: absolute;
+  inset: -30% -40% 40% -20%;
+  background: radial-gradient(circle, rgb(251 191 36 / 28%), transparent 62%);
+  pointer-events: none;
+}
+
+.portrait {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1.4rem;
+  filter: saturate(0.9) contrast(1.04);
+}
+
+.portrait-badge {
+  position: absolute;
+  right: -0.75rem;
+  bottom: -1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 45px rgb(0 0 0 / 45%);
+}
+
+.portrait-badge i {
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 0.75rem;
+  background: rgb(251 191 36 / 15%);
+  color: #fbbf24;
+}
+
+.portrait-badge div {
+  display: flex;
+  flex-direction: column;
+}
+
+.portrait-badge strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.portrait-badge span {
+  color: #94a3b8;
+  font-size: 0.7rem;
+}
+
+.about-copy h2 {
+  margin-bottom: 1.3rem;
+}
+
+.about-copy p {
+  color: #a9b6c9;
+  line-height: 1.9;
+  font-size: 0.96rem;
+  margin: 0 0 1rem;
+}
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.fact {
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.fact i {
+  color: #fbbf24;
+  font-size: 1rem;
+}
+
+.fact span {
+  color: #64748b;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.fact strong {
+  font-size: 0.88rem;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.principles {
+  margin-top: 5.5rem;
+}
+
+.principle-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.principle {
+  padding: 1.6rem;
+  border-radius: 1.3rem;
+}
+
+.principle-icon {
+  display: grid;
+  place-items: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 0.9rem;
+  background: rgb(34 211 238 / 10%);
+  border: 1px solid rgb(34 211 238 / 22%);
+  color: #22d3ee;
+}
+
+.principle h3 {
+  margin: 1.2rem 0 0;
+  font-size: 1.1rem;
+}
+
+.principle p {
+  margin: 0.6rem 0 0;
+  color: #9aa8bc;
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.stack-strip {
+  margin-top: 2.5rem;
+  border-radius: 1.2rem;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.stack-strip p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.stack-strip div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (min-width: 900px) {
+  .about-grid {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 5rem;
+  }
+  .principle-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .stack-strip {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

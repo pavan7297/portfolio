@@ -1,0 +1,77 @@
+<div class="page">
+  <app-page-header
+    eyebrow="A little about me"
+    title="Building with"
+    accent="purpose."
+    description="I'm a Java full stack developer who likes turning ambiguous problems into clean, dependable software — and then making it look effortless on the screen." />
+
+  <div class="about-grid">
+    <div class="portrait-column">
+      <div class="portrait-frame glass">
+        <div class="portrait-glow" aria-hidden="true"></div>
+        <img
+          ngSrc="/assets/me.jpg"
+          width="401"
+          height="517"
+          priority
+          alt="Portrait of Pavan Srinivas"
+          class="portrait" />
+      </div>
+      <div class="portrait-badge glass-strong">
+        <i class="fa-solid fa-code" aria-hidden="true"></i>
+        <div>
+          <strong>3.8+ years</strong>
+          <span>of hands-on development</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-copy">
+      <h2 class="section-title font-display">Hi, I'm {{ profile.shortName }}.</h2>
+      @for (paragraph of profile.summary; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+
+      <div class="fact-grid">
+        @for (fact of facts; track fact.label) {
+          <div class="fact glass card-3d">
+            <i [class]="fact.icon" aria-hidden="true"></i>
+            <span>{{ fact.label }}</span>
+            <strong>{{ fact.value }}</strong>
+          </div>
+        }
+      </div>
+
+      <div class="about-actions">
+        <a routerLink="/experience" class="btn btn-primary">View my journey <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        <a routerLink="/contact" class="btn btn-ghost">Work with me</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="principles" aria-labelledby="principles-title">
+    <p class="eyebrow">How I work</p>
+    <h2 id="principles-title" class="section-title font-display">Principles I build on.</h2>
+    <div class="principle-grid">
+      @for (item of principles; track item.title) {
+        <article class="principle glass card-3d">
+          <span class="principle-icon"><i [class]="item.icon" aria-hidden="true"></i></span>
+          <h3 class="font-display">{{ item.title }}</h3>
+          <p>{{ item.copy }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="stack-strip glass" aria-label="Core technologies">
+    <p>Core stack</p>
+    <div>
+      <span class="chip">Java</span>
+      <span class="chip">Spring Boot</span>
+      <span class="chip">Angular</span>
+      <span class="chip">TypeScript</span>
+      <span class="chip">REST APIs</span>
+      <span class="chip">Tailwind CSS</span>
+    </div>
+  </section>
+</div>

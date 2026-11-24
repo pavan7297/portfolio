@@ -1,0 +1,123 @@
+<div class="page">
+  <app-page-header
+    eyebrow="Let's connect"
+    title="Have something"
+    accent="in mind?"
+    description="Tell me a little about what you're building. I usually reply within a day, and we can take it from there." />
+
+  <div class="contact-grid">
+    <aside class="contact-details" aria-label="Contact information">
+      <div class="availability glass">
+        <span class="pulse" aria-hidden="true"></span>
+        <div>
+          <strong>Available for new work</strong>
+          <p>{{ profile.availability }}</p>
+        </div>
+      </div>
+
+      <div class="detail-list glass">
+        @for (method of contactMethods; track method.label) {
+          <a [href]="method.url" target="_blank" rel="noopener noreferrer" class="detail">
+            <span class="detail-icon"><i [class]="method.icon" aria-hidden="true"></i></span>
+            <span class="detail-text">
+              <small>{{ method.label }}</small>
+              <strong>{{ method.value }}</strong>
+            </span>
+            <i class="fa-solid fa-arrow-up-right-from-square arrow" aria-hidden="true"></i>
+          </a>
+        }
+      </div>
+
+      <div class="location glass">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <div>
+          <small>Based in</small>
+          <strong>{{ profile.location }}</strong>
+        </div>
+      </div>
+
+      <p class="note">
+        Prefer email? Write to <a [href]="'mailto:' + profile.email">{{ profile.email }}</a> and I'll get back to you.
+      </p>
+    </aside>
+
+    <section class="form-card glass-strong" aria-labelledby="form-title">
+      <div class="form-head">
+        <h2 id="form-title" class="font-display">Send an enquiry</h2>
+        <p>The form opens WhatsApp with your details ready to send — no backend, no lost messages.</p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="field-grid">
+          <div class="field-group">
+            <label for="name">Your name <span aria-hidden="true">*</span></label>
+            <input id="name" type="text" class="field" formControlName="name" placeholder="e.g. Ravi Kumar" autocomplete="name" [attr.aria-invalid]="hasError('name')" [attr.aria-describedby]="hasError('name') ? 'name-error' : null" />
+            @if (hasError('name')) {
+              <span id="name-error" class="field-error">Please enter at least 2 characters.</span>
+            }
+          </div>
+
+          <div class="field-group">
+            <label for="email">Email address <span aria-hidden="true">*</span></label>
+            <input id="email" type="email" class="field" formControlName="email" placeholder="you@company.com" autocomplete="email" [attr.aria-invalid]="hasError('email')" [attr.aria-describedby]="hasError('email') ? 'email-error' : null" />
+            @if (hasError('email')) {
+              <span id="email-error" class="field-error">Please enter a valid email address.</span>
+            }
+          </div>
+
+          <div class="field-group">
+            <label for="phone">Phone number</label>
+            <input id="phone" type="tel" class="field" formControlName="phone" placeholder="+91 98765 43210" autocomplete="tel" />
+          </div>
+
+          <div class="field-group">
+            <label for="company">Company / organization</label>
+            <input id="company" type="text" class="field" formControlName="company" placeholder="Your company" autocomplete="organization" />
+          </div>
+
+          <div class="field-group full">
+            <label for="inquiry">What can I help with? <span aria-hidden="true">*</span></label>
+            <select id="inquiry" class="field" formControlName="inquiry" [attr.aria-invalid]="hasError('inquiry')" [attr.aria-describedby]="hasError('inquiry') ? 'inquiry-error' : null">
+              <option value="" disabled>Select an option</option>
+              @for (type of inquiryTypes; track type) {
+                <option [value]="type">{{ type }}</option>
+              }
+            </select>
+            @if (hasError('inquiry')) {
+              <span id="inquiry-error" class="field-error">Please choose an inquiry type.</span>
+            }
+          </div>
+
+          <div class="field-group">
+            <label for="budget">Budget (optional)</label>
+            <input id="budget" type="text" class="field" formControlName="budget" placeholder="e.g. ₹50,000 – ₹1,00,000" />
+          </div>
+
+          <div class="field-group">
+            <label for="timeline">Timeline (optional)</label>
+            <input id="timeline" type="text" class="field" formControlName="timeline" placeholder="e.g. Start in June" />
+          </div>
+
+          <div class="field-group full">
+            <label for="message">Tell me about it <span aria-hidden="true">*</span></label>
+            <textarea id="message" class="field" rows="5" formControlName="message" placeholder="A few lines about your project, goals and any deadlines..." [attr.aria-invalid]="hasError('message')" [attr.aria-describedby]="hasError('message') ? 'message-error' : null"></textarea>
+            @if (hasError('message')) {
+              <span id="message-error" class="field-error">Please add at least 10 characters.</span>
+            }
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary submit-btn">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Send via WhatsApp
+        </button>
+
+        @if (prepared()) {
+          <p class="success" role="status">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            Your message is ready in WhatsApp. Hit send there and I'll take it from there.
+          </p>
+        }
+      </form>
+    </section>
+  </div>
+</div>

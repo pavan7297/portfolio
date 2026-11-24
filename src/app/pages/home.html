@@ -1,0 +1,149 @@
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="status-pill glass">
+        <span class="status-dot" aria-hidden="true"></span>
+        {{ profile.availability }}
+      </div>
+
+      <p class="eyebrow">Hello, I'm {{ profile.shortName }}</p>
+
+      <h1 class="font-display">
+        Java backend.<br />
+        <span>Angular </span><br />
+        Real impact.
+      </h1>
+
+      <p class="hero-lead">
+        I build modern, scalable web applications with Spring Boot and Angular —
+        turning complex requirements into software that feels simple to use.
+      </p>
+
+      <div class="hero-actions">
+        <a routerLink="/projects" class="btn btn-primary">
+          Explore my work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a routerLink="/contact" class="btn btn-ghost">
+          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Start a conversation
+        </a>
+      </div>
+
+      <div class="hero-socials" aria-label="Social profiles">
+        @for (social of profile.socials; track social.label) {
+          <a
+            [href]="social.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="social.label"
+            [title]="social.label">
+            <i [class]="social.icon" aria-hidden="true"></i>
+          </a>
+        }
+      </div>
+    </div>
+
+    <div class="hero-stats" aria-label="Career at a glance">
+      @for (stat of profile.stats; track stat.label) {
+        <div class="stat-card glass card-3d">
+          <strong class="font-display">{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">
+    <span>Scroll to explore</span>
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</section>
+
+<section class="section-block" aria-labelledby="highlights-title">
+  <div class="section-heading">
+    <p class="eyebrow">What I bring</p>
+    <h2 id="highlights-title" class="section-title font-display">More than just code.</h2>
+    <p class="section-copy">
+      I care about the whole product — the architecture underneath, the experience on screen and
+      the path that gets it into production.
+    </p>
+  </div>
+
+  <div class="highlight-grid">
+    @for (item of highlights; track item.title) {
+      <article
+        class="highlight-card glass card-3d"
+        [class.tone-amber]="item.tone === 'amber'"
+        [class.tone-cyan]="item.tone === 'cyan'"
+        [class.tone-violet]="item.tone === 'violet'">
+        <div class="icon-tile"><i [class]="item.icon" aria-hidden="true"></i></div>
+        <h3 class="font-display">{{ item.title }}</h3>
+        <p>{{ item.copy }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section-block" aria-labelledby="work-title">
+  <div class="section-heading split">
+    <div>
+      <p class="eyebrow">Selected work</p>
+      <h2 id="work-title" class="section-title font-display">Recent projects.</h2>
+    </div>
+    <a routerLink="/projects" class="text-link">See all projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </div>
+
+  <div class="work-grid">
+    @for (project of featuredProjects; track project.id) {
+      <article class="work-card glass card-3d">
+        <div class="work-top">
+          <span class="work-icon"><i [class]="project.icon" aria-hidden="true"></i></span>
+          <span class="work-status" [class.live]="project.status === 'live'">
+            {{ project.status === 'live' ? '● Live' : '● Delivered' }}
+          </span>
+        </div>
+        <p class="work-category">{{ project.category }} · {{ project.year }}</p>
+        <h3 class="font-display">{{ project.title }}</h3>
+        <p class="work-copy">{{ project.description }}</p>
+        <div class="work-tags">
+          @for (tech of project.technologies.slice(0, 3); track tech) {
+            <span class="chip">{{ tech }}</span>
+          }
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section-block" aria-labelledby="journey-title">
+  <div class="section-heading split">
+    <div>
+      <p class="eyebrow">The journey</p>
+      <h2 id="journey-title" class="section-title font-display">Where I've worked.</h2>
+    </div>
+    <a routerLink="/experience" class="text-link">Full experience <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </div>
+
+  <ol class="role-list">
+    @for (role of recentRoles; track role.id) {
+      <li class="role-row glass">
+        <span class="role-marker" [class.current]="role.current" aria-hidden="true"></span>
+        <div class="role-main">
+          <h3>{{ role.role }}</h3>
+          <p>{{ role.company }}</p>
+        </div>
+        <span class="role-period">{{ role.period }}</span>
+      </li>
+    }
+  </ol>
+</section>
+
+<section class="cta-section" aria-labelledby="cta-title">
+  <div class="cta-card glass-strong">
+    <div>
+      <p class="eyebrow">Let's build something</p>
+      <h2 id="cta-title" class="font-display">Have a project in mind?</h2>
+      <p>I'd love to hear about your idea, your team and what success looks like for you.</p>
+    </div>
+    <a routerLink="/contact" class="btn btn-primary">Get in touch <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+  </div>
+</section>

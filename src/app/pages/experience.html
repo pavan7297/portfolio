@@ -1,0 +1,80 @@
+<div class="page">
+  <app-page-header
+    eyebrow="My journey"
+    title="Experience that"
+    accent="compounds."
+    description="From my first production commit to building scalable full stack platforms, every role has added a new layer to how I design, build and ship software." />
+
+  <div class="summary-row">
+    <div class="summary-card glass">
+      <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+      <div><strong>{{ totalRoles }}</strong><span>Roles held</span></div>
+    </div>
+    <div class="summary-card glass">
+      <i class="fa-solid fa-building" aria-hidden="true"></i>
+      <div><strong>{{ totalCompanies }}</strong><span>Companies</span></div>
+    </div>
+    <div class="summary-card glass">
+      <i class="fa-solid fa-code-commit" aria-hidden="true"></i>
+      <div><strong>3.8+</strong><span>Years building</span></div>
+    </div>
+    @if (currentRole) {
+      <div class="summary-card current glass">
+        <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+        <div><strong>Now</strong><span>{{ currentRole.company }}</span></div>
+      </div>
+    }
+  </div>
+
+  <section class="timeline" aria-label="Professional experience">
+    <div class="timeline-line" aria-hidden="true"></div>
+
+    @for (role of roles; track role.id) {
+      <article class="timeline-item" [class.is-current]="role.current">
+        <div class="timeline-node" aria-hidden="true">
+          <i [class]="role.current ? 'fa-solid fa-bolt' : 'fa-solid fa-check'"></i>
+        </div>
+
+        <div class="timeline-card glass card-3d">
+          <div class="card-top">
+            <div>
+              @if (role.current) {
+                <span class="now-tag">Current role</span>
+              }
+              <h2 class="font-display">{{ role.role }}</h2>
+              <p class="company"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> {{ role.company }}</p>
+            </div>
+            <div class="period-block">
+              <span>{{ role.period }}</span>
+              <small>{{ role.location }}</small>
+            </div>
+          </div>
+
+          <p class="role-copy">{{ role.description }}</p>
+
+          <h3>Highlights</h3>
+          <ul class="highlights">
+            @for (highlight of role.highlights; track highlight) {
+              <li><i class="fa-solid fa-angle-right" aria-hidden="true"></i> {{ highlight }}</li>
+            }
+          </ul>
+
+          <div class="stack">
+            @for (tech of role.stack; track tech) {
+              <span class="chip">{{ tech }}</span>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </section>
+
+  <section class="next-step glass-strong">
+    <div>
+      <p class="eyebrow">What's next</p>
+      <h2 class="font-display">Let's write the next chapter together.</h2>
+      <p>I'm open to full-time roles and focused freelance projects where careful engineering makes a difference.</p>
+    </div>
+    <a routerLink="/contact" class="btn btn-primary">Talk to me <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </section>
+</div>

@@ -1,0 +1,69 @@
+<div class="page">
+  <app-page-header
+    eyebrow="My toolkit"
+    title="Skills built"
+    accent="in production."
+    description="A practical, full stack toolkit shaped by real projects — from Java services and REST APIs to Angular interfaces and maintainable workflows." />
+
+  <div class="skills-meta">
+    <span class="chip"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> {{ groups.length }} domains</span>
+    <span class="chip"><i class="fa-solid fa-cubes" aria-hidden="true"></i> {{ totalSkills }} technologies</span>
+    <span class="chip"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Self-assessed proficiency</span>
+  </div>
+
+  <div class="skills-grid">
+    @for (group of groups; track group.id) {
+      <section class="skill-group glass card-3d" [attr.aria-labelledby]="'skills-group-' + group.id">
+        <div class="group-head">
+          <span class="group-icon"><i [class]="group.icon" aria-hidden="true"></i></span>
+          <div>
+            <h2 id="skills-group-{{ group.id }}" class="font-display">{{ group.title }}</h2>
+            <p>{{ group.description }}</p>
+          </div>
+        </div>
+
+        <div class="skill-list">
+          @for (skill of group.skills; track skill.name) {
+            <div class="skill">
+              <div class="skill-label">
+                <span>{{ skill.name }}</span>
+                <span>{{ skill.level }}%</span>
+              </div>
+              <div
+                class="bar"
+                role="progressbar"
+                [attr.aria-label]="skill.name + ' proficiency'"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                [attr.aria-valuenow]="skill.level">
+                <span [style.width.%]="skill.level"></span>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+  </div>
+
+  <section class="workflow" aria-labelledby="workflow-title">
+    <div>
+      <p class="eyebrow">Beyond the stack</p>
+      <h2 id="workflow-title" class="section-title font-display">How a project moves forward.</h2>
+      <p class="section-copy">
+        Tools matter, but the way they're used matters more. Here's the path I follow from first
+        conversation to production.
+      </p>
+      <a routerLink="/services" class="text-link">See how I can help <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+
+    <ol class="workflow-list">
+      @for (step of workflow; track step.label; let i = $index) {
+        <li class="glass">
+          <span class="step-number font-display">0{{ i + 1 }}</span>
+          <i [class]="step.icon" aria-hidden="true"></i>
+          <span>{{ step.label }}</span>
+        </li>
+      }
+    </ol>
+  </section>
+</div>

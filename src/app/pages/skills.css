@@ -1,0 +1,144 @@
+.skills-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.skills-meta i {
+  color: #fbbf24;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: 2.5rem;
+}
+
+.skill-group {
+  padding: 1.7rem;
+  border-radius: 1.4rem;
+}
+
+.group-head {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding-bottom: 1.3rem;
+  border-bottom: 1px solid rgb(255 255 255 / 8%);
+}
+
+.group-icon {
+  display: grid;
+  place-items: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  flex: none;
+  border-radius: 0.9rem;
+  background: rgb(251 191 36 / 12%);
+  border: 1px solid rgb(251 191 36 / 25%);
+  color: #fbbf24;
+}
+
+.group-head h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+.group-head p {
+  margin: 0.4rem 0 0;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.skill-list {
+  display: grid;
+  gap: 1.05rem;
+  margin-top: 1.5rem;
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #dbe4f0;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.skill-label span:last-child {
+  color: #fbbf24;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar {
+  position: relative;
+  height: 0.42rem;
+  margin-top: 0.5rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 8%);
+  overflow: hidden;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24 55%, #22d3ee);
+  box-shadow: 0 0 14px rgb(251 191 36 / 35%);
+}
+
+.workflow {
+  display: grid;
+  gap: 2rem;
+  margin-top: 5rem;
+  align-items: center;
+}
+
+.workflow .text-link {
+  margin-top: 1.2rem;
+}
+
+.workflow-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.workflow-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 1rem;
+  font-size: 0.88rem;
+  color: #dbe4f0;
+}
+
+.workflow-list i {
+  color: #22d3ee;
+  width: 1.2rem;
+  text-align: center;
+}
+
+.step-number {
+  margin-right: 0.2rem;
+  color: #fbbf24;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 720px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .workflow {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}

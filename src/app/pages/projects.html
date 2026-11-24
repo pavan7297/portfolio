@@ -1,0 +1,103 @@
+<div class="page page-wide">
+  <app-page-header
+    eyebrow="Selected work"
+    title="Ideas made"
+    accent="tangible."
+    description="A collection of healthcare services, commerce platforms, business portals and experiments — each one built to solve a real problem with clean, maintainable engineering." />
+
+  <div class="filters" role="group" aria-label="Filter projects by category">
+    @for (category of categories; track category) {
+      <button
+        type="button"
+        class="filter"
+        [class.active]="activeCategory() === category"
+        [attr.aria-pressed]="activeCategory() === category"
+        (click)="selectCategory(category)">
+        {{ category }}
+      </button>
+    }
+  </div>
+
+  <p class="result-count" aria-live="polite">{{ visibleProjects().length }} projects</p>
+
+  <div class="project-grid">
+    @for (project of visibleProjects(); track project.id) {
+      <article class="project-card glass card-3d">
+        <div class="project-visual">
+          <span class="visual-icon"><i [class]="project.icon" aria-hidden="true"></i></span>
+          <span class="visual-index font-display">0{{ project.id }}</span>
+          <span class="visual-glow" aria-hidden="true"></span>
+        </div>
+
+        <div class="project-body">
+          <div class="project-meta">
+            <span>{{ project.category }}</span>
+            <span class="dot" aria-hidden="true">·</span>
+            <span>{{ project.year }}</span>
+            <span class="status" [class.live]="project.status === 'live'">
+              {{ project.status === 'live' ? 'Live' : 'Delivered' }}
+            </span>
+          </div>
+
+          <h2 class="font-display">{{ project.title }}</h2>
+          <p class="client">For {{ project.client }}</p>
+          <p class="description">{{ project.description }}</p>
+
+          <ul class="highlights">
+            @for (highlight of project.highlights; track highlight) {
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> {{ highlight }}</li>
+            }
+          </ul>
+
+          <div class="tech">
+            @for (tech of project.technologies; track tech) {
+              <span class="chip">{{ tech }}</span>
+            }
+          </div>
+
+          <div class="project-links">
+            @if (project.liveUrl) {
+              <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-small">
+                View live <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            }
+            @if (project.codeUrl) {
+              <a [href]="project.codeUrl" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-small">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> Code
+              </a>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+
+  <section class="live-section" aria-labelledby="live-title">
+    <div class="live-heading">
+      <p class="eyebrow">Try them yourself</p>
+      <h2 id="live-title" class="section-title font-display">Live deployments.</h2>
+      <p class="section-copy">A few projects you can open right now and explore in the browser.</p>
+    </div>
+
+    <div class="live-grid">
+      @for (project of liveProjects(); track project.id) {
+        <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="live-card glass">
+          <i [class]="project.icon" aria-hidden="true"></i>
+          <div>
+            <strong>{{ project.title }}</strong>
+            <span>{{ project.client }}</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow" aria-hidden="true"></i>
+        </a>
+      }
+    </div>
+  </section>
+
+  <section class="project-cta glass-strong">
+    <div>
+      <p class="eyebrow">Your project next</p>
+      <h2 class="font-display">Let's build something worth shipping.</h2>
+    </div>
+    <a routerLink="/contact" class="btn btn-primary">Start a project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </section>
+</div>

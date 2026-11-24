@@ -1,0 +1,68 @@
+<div class="page">
+  <app-page-header
+    eyebrow="How I can help"
+    title="Services built for"
+    accent="real outcomes."
+    description="Whether you need a full product, a stronger backend or a frontend that finally feels fast, I bring the same care to every engagement." />
+
+  <div class="services-grid">
+    @for (service of services; track service.id) {
+      <article class="service-card glass card-3d">
+        <div class="service-head">
+          <span class="service-icon"><i [class]="service.icon" aria-hidden="true"></i></span>
+          <span class="service-number font-display">0{{ service.id }}</span>
+        </div>
+
+        <h2 class="font-display">{{ service.title }}</h2>
+        <p class="service-copy">{{ service.description }}</p>
+
+        <h3>What you get</h3>
+        <ul>
+          @for (item of service.deliverables; track item) {
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> {{ item }}</li>
+          }
+        </ul>
+
+        <div class="service-stack">
+          @for (tech of service.stack; track tech) {
+            <span class="chip">{{ tech }}</span>
+          }
+        </div>
+      </article>
+    }
+  </div>
+
+  <section class="process" aria-labelledby="process-title">
+    <div class="process-heading">
+      <p class="eyebrow">Working together</p>
+      <h2 id="process-title" class="section-title font-display">A clear path from idea to launch.</h2>
+      <p class="section-copy">
+        No mystery, no endless status meetings. Just a steady rhythm of small, visible progress.
+      </p>
+    </div>
+
+    <ol class="process-grid">
+      @for (step of steps; track step.id) {
+        <li class="process-step glass">
+          <span class="step-icon"><i [class]="step.icon" aria-hidden="true"></i></span>
+          <span class="step-no font-display">0{{ step.id }}</span>
+          <h3 class="font-display">{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </li>
+      }
+    </ol>
+  </section>
+
+  <section class="engagement glass-strong">
+    <div>
+      <p class="eyebrow">Flexible engagement</p>
+      <h2 class="font-display">Pick the way that fits.</h2>
+      <ul>
+        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Full-time role — immediate joiner</li>
+        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Freelance project with a defined scope</li>
+        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Contract or technical consultation</li>
+      </ul>
+    </div>
+    <a routerLink="/contact" class="btn btn-primary">Discuss your needs <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </section>
+</div>

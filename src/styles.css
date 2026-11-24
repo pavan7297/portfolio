@@ -1,15 +1,255 @@
-/* You can add global styles to this file, and also import other style files */
-
-@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Erica+One&family=Foldit:wght@100..900&family=Luckiest+Guy&family=Mozilla+Headline:wght@200..700&family=Sansita+Swashed:wght@300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Erica+One&family=Luckiest+Guy&family=Sansita+Swashed:wght@300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Erica+One&family=Foldit:wght@100..900&family=Luckiest+Guy&family=Sansita+Swashed:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 @import 'tailwindcss';
 
 @theme {
-  --font-sansita: 'Sansita Swashed', system-ui;
-  --font-Erica: "Erica One", sans-serif;
-  --font-swasheds: 'Luckiest Guy', cursive;
-  --font-foldit: 'Foldit', sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --color-ink: #05060a;
+  --color-accent: #fbbf24;
+  --color-cyan-glow: #22d3ee;
+}
+
+:root {
+  color-scheme: dark;
+  --surface: rgb(255 255 255 / 4%);
+  --surface-strong: rgb(255 255 255 / 7%);
+  --border: rgb(255 255 255 / 11%);
+  --border-accent: rgb(251 191 36 / 40%);
+  --text: #f1f5f9;
+  --muted: #9aa8bc;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #05060a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #05060a;
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: rgb(251 191 36 / 30%);
+  color: #fff;
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid #fbbf24;
+  outline-offset: 3px;
+  border-radius: 0.4rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #05060a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b3242;
+  border-radius: 999px;
+  border: 2px solid #05060a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fbbf24;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8.5rem 1.25rem 5rem;
+}
+
+.page-wide {
+  max-width: 1320px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0;
+  color: #fbbf24;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.section-title {
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.section-copy {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.96rem;
+  margin: 0;
+}
+
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.glass-strong {
+  background: rgb(12 15 24 / 82%);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition:
+    transform 350ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 250ms ease,
+    box-shadow 350ms ease;
+}
+
+.card-3d:hover {
+  transform: perspective(900px) rotateX(4deg) rotateY(-5deg) translateY(-8px);
+  border-color: var(--border-accent);
+  box-shadow: 0 24px 60px rgb(0 0 0 / 45%), 0 0 40px rgb(251 191 36 / 8%);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.36rem 0.75rem;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 4%);
+  color: #cbd5e1;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 200ms ease,
+    background 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, #fbbf24, #f59e0b);
+  color: #0b0d13;
+  box-shadow: 0 12px 32px rgb(251 191 36 / 22%);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(120deg, #fcd34d, #fbbf24);
+}
+
+.btn-ghost {
+  border-color: rgb(255 255 255 / 20%);
+  color: #e2e8f0;
+  background: rgb(255 255 255 / 4%);
+}
+
+.btn-ghost:hover {
+  border-color: #fbbf24;
+  color: #fbbf24;
+}
+
+.field {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 0.85rem;
+  background: rgb(5 6 10 / 55%);
+  color: #f8fafc;
+  font: inherit;
+  font-size: 0.9rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.field::placeholder {
+  color: #64748b;
+}
+
+.field:hover {
+  border-color: rgb(255 255 255 / 25%);
+}
+
+.field:focus {
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 3px rgb(251 191 36 / 12%);
+  outline: none;
+}
+
+.field[aria-invalid='true'] {
+  border-color: #fb7185;
+}
+
+.field-error {
+  display: block;
+  margin-top: 0.35rem;
+  color: #fda4af;
+  font-size: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .card-3d:hover,
+  .btn:hover {
+    transform: none;
+  }
 }
